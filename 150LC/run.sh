@@ -20,4 +20,4 @@ name=$(basename "$file" .swift)
 echo "Running $name..."
 
 echo "$name.run()" > Sources/LC150/main.swift
-swift run
+swift build &>/dev/null && .build/debug/LC150
