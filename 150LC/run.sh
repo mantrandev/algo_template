@@ -3,6 +3,7 @@
 #        ./run.sh 001    → runs Day001
 
 cd "$(dirname "$0")"
+git -C .. pull
 
 if [ -n "$1" ]; then
     file=$(ls Sources/LC150/Day$(printf "%03d" "$1")_*.swift 2>/dev/null | head -1)
