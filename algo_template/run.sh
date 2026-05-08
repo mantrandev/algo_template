@@ -1,14 +1,14 @@
 #!/bin/bash
 # Usage: ./run.sh        → runs latest day
-#        ./run.sh 001    → runs Day001
+#        ./run.sh 000    → runs Day000
 
 cd "$(dirname "$0")"
 git -C .. pull
 
 if [ -n "$1" ]; then
-    file=$(ls Sources/algo_template/Day$(printf "%03d" "$1")_*.swift 2>/dev/null | head -1)
+    file=$(find Run -name "Day$(printf "%03d" "$1")_*.swift" 2>/dev/null | head -1)
 else
-    file=$(ls Sources/algo_template/Day*.swift 2>/dev/null | sort | tail -1)
+    file=$(find Run -name "Day*.swift" 2>/dev/null | sort | tail -1)
 fi
 
 if [ -z "$file" ]; then
@@ -19,5 +19,5 @@ fi
 name=$(basename "$file" .swift)
 echo "Running $name..."
 
-echo "$name.run()" > Sources/algo_template/main.swift
+echo "$name.run()" > main.swift
 swift build &>/dev/null && .build/debug/algo_template
