@@ -3,6 +3,27 @@
 > 150 problems in 150 days.  
 > Study plan: https://leetcode.com/studyplan/top-interview-150/
 
+## Run
+
+```bash
+cd 150LC
+
+./run.sh        # run latest day
+./run.sh 001    # run specific day
+```
+
+**File naming**: `DayXXX_ProblemName.swift` — each file must have a `run()` static method.
+
+```swift
+enum Day001_TwoSum {
+    static func solve(_ nums: [Int], _ target: Int) -> [Int] { ... }
+
+    static func run() {
+        print(solve([2, 7, 11, 15], 9)) // [0, 1]
+    }
+}
+```
+
 ---
 
 ## Progress
